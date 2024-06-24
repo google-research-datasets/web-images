@@ -19,7 +19,7 @@ Each image belongs to at least one of these categories as described in the [imag
 
 ### Visualizer
 
-The images can be listed by category using the [grid viewer](2023/index.html) (`git clone` first).
+The images can be listed by category using the [grid viewer](https://google-research-datasets.github.io/web-images/2023/).
 
 ## File integrity check
 
