@@ -11,8 +11,8 @@ import sys
 
 
 if __name__ == '__main__':
-  if len(sys.argv) != 4:
-    print('Usage: ' + os.path.basename(sys.argv[0]) + ' <CSV path> <licenses folder path> <LICENSE path>')
+  if len(sys.argv) != 5:
+    print('Usage: ' + os.path.basename(sys.argv[0]) + ' <CSV path> <image folder path> <licenses folder path> <LICENSE path>')
     sys.exit(1)
 
   assets = set()
@@ -25,14 +25,14 @@ if __name__ == '__main__':
  all files not listed in this document''']
   for row in csv_rows:
     if main_license_name in row['License']:
-      aggregated_licenses.append(' 2023/images/' + row['Name'])
+      aggregated_licenses.append(' ' + os.path.join(sys.argv[2], row['Name']))
       assets.add(row['Name'])
   aggregated_licenses.append('')
-  with open(os.path.join(sys.argv[2], main_license_name + '.txt'), 'r') as license:
+  with open(os.path.join(sys.argv[3], main_license_name + '.txt'), 'r') as license:
     aggregated_licenses.append(license.read())
 
   # Various licenses.
-  for license_file in os.scandir(sys.argv[2]):
+  for license_file in os.scandir(sys.argv[3]):
     if not license_file.is_file():
       continue
     license_name = license_file.name.removesuffix('.txt')
@@ -46,14 +46,14 @@ Files:''')
     num_files = 0
     for row in csv_rows:
       if license_name in row['License']:
-        aggregated_licenses.append(' 2023/images/' + row['Name'])
+        aggregated_licenses.append(' ' + os.path.join(sys.argv[2], row['Name']))
         assets.add(row['Name'])
         num_files = num_files + 1
     if num_files == 0:
       print('Unused license file ' + license_file.name)
       sys.exit(1)
     aggregated_licenses.append('')
-    with open(os.path.join(sys.argv[2], license_file.name), 'r') as license:
+    with open(os.path.join(sys.argv[3], license_file.name), 'r') as license:
       aggregated_licenses.append(license.read())
 
   # Public domain.
@@ -64,7 +64,7 @@ Files:''')
 Files in the public domain:''')
   for row in csv_rows:
     if 'Public domain' in row['License']:
-      aggregated_licenses.append(' 2023/images/' + row['Name'])
+      aggregated_licenses.append(' ' + os.path.join(sys.argv[2], row['Name']))
       assets.add(row['Name'])
 
   if len(assets) != len(csv_rows):
@@ -74,7 +74,7 @@ Files in the public domain:''')
         print('  ' + row['Name'])
     sys.exit(1)
 
-  with open(sys.argv[3], 'w') as top_level_license:
+  with open(sys.argv[4], 'w') as top_level_license:
     top_level_license.write('\n'.join(aggregated_licenses))
 
   print('Done')

@@ -17,7 +17,9 @@
       img {
         max-width: 256px;
         max-height: 256px;
-        background-image: url(transparency_checkerboard.webp);
+        background-image: linear-gradient(45deg, #cacaca 25%, transparent 25%), linear-gradient(-45deg, #cacaca 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #cacaca 75%), linear-gradient(-45deg, transparent 75%, #cacaca 75%);
+        background-size: 16px 16px;
+        background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
       }
       img:hover {
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -32,6 +34,7 @@
       .Medical {  }
       .Gaming {  }
       .Emoji {  }
+      .High-bit-depth {  }
     </style>
     <script>
       function toggle(className, displayValue) {
@@ -89,6 +92,10 @@
       <div style="display: flex; flex-direction: column;">
         <button onClick="toggle('Emoji', '')">Show all Emoji</button>
         <button onClick="toggle('Emoji', 'none')">Hide all Emoji</button>
+      </div>
+      <div style="display: flex; flex-direction: column;">
+        <button onClick="toggle('High-bit-depth', '')">Show all High-bit-depth</button>
+        <button onClick="toggle('High-bit-depth', 'none')">Hide all High-bit-depth</button>
       </div>
     </div>
     <div id="grid">
@@ -1073,13 +1080,13 @@
       <a href="images/basi0g08.png" target="_blank" class="Any Synthetic Up-to-128x128px">
         <img src="images/basi0g08.png" title="basi0g08.png ( - http://www.schaik.com/pngsuite/)">
       </a>
-      <a href="images/basi0g16.png" target="_blank" class="Any Synthetic Up-to-128x128px">
+      <a href="images/basi0g16.png" target="_blank" class="Any Synthetic Up-to-128x128px High-bit-depth">
         <img src="images/basi0g16.png" title="basi0g16.png ( - http://www.schaik.com/pngsuite/)">
       </a>
       <a href="images/basi2c08.png" target="_blank" class="Any Synthetic Up-to-128x128px">
         <img src="images/basi2c08.png" title="basi2c08.png ( - http://www.schaik.com/pngsuite/)">
       </a>
-      <a href="images/basi2c16.png" target="_blank" class="Any Synthetic Up-to-128x128px">
+      <a href="images/basi2c16.png" target="_blank" class="Any Synthetic Up-to-128x128px High-bit-depth">
         <img src="images/basi2c16.png" title="basi2c16.png ( - http://www.schaik.com/pngsuite/)">
       </a>
       <a href="images/basi3p01.png" target="_blank" class="Any Synthetic Up-to-128x128px">
@@ -1097,13 +1104,13 @@
       <a href="images/basi4a08.png" target="_blank" class="Any Translucent Synthetic Up-to-128x128px">
         <img src="images/basi4a08.png" title="basi4a08.png ( - http://www.schaik.com/pngsuite/)">
       </a>
-      <a href="images/basi4a16.png" target="_blank" class="Any Translucent Synthetic Up-to-128x128px">
+      <a href="images/basi4a16.png" target="_blank" class="Any Translucent Synthetic Up-to-128x128px High-bit-depth">
         <img src="images/basi4a16.png" title="basi4a16.png ( - http://www.schaik.com/pngsuite/)">
       </a>
       <a href="images/basi6a08.png" target="_blank" class="Any Translucent Synthetic Up-to-128x128px">
         <img src="images/basi6a08.png" title="basi6a08.png ( - http://www.schaik.com/pngsuite/)">
       </a>
-      <a href="images/basi6a16.png" target="_blank" class="Any Translucent Synthetic Up-to-128x128px">
+      <a href="images/basi6a16.png" target="_blank" class="Any Translucent Synthetic Up-to-128x128px High-bit-depth">
         <img src="images/basi6a16.png" title="basi6a16.png ( - http://www.schaik.com/pngsuite/)">
       </a>
       <a href="images/ccwn2c08.png" target="_blank" class="Any Synthetic Up-to-128x128px">
@@ -1112,7 +1119,7 @@
       <a href="images/g04n2c08.png" target="_blank" class="Any Synthetic Up-to-128x128px">
         <img src="images/g04n2c08.png" title="g04n2c08.png ( - http://www.schaik.com/pngsuite/)">
       </a>
-      <a href="images/tbbn2c16.png" target="_blank" class="Any Translucent Synthetic Up-to-128x128px">
+      <a href="images/tbbn2c16.png" target="_blank" class="Any Translucent Synthetic Up-to-128x128px High-bit-depth">
         <img src="images/tbbn2c16.png" title="tbbn2c16.png ( - http://www.schaik.com/pngsuite/)">
       </a>
       <a href="images/mer_shrt_23976_vdm_sdr_rec709_g24_3840x2160_20170913.00087000_crop.png" target="_blank" class="Any Camera-captured">

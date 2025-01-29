@@ -1,10 +1,10 @@
 # Web Images
 
-Collection of still PNG and animated GIF images gathered on the Internet in 2023.
+Collection of still PNG and animated GIF images gathered on the Internet and from other sources.
 
 ## Tags
 
-Each image belongs to at least one of these categories as described in the [images.csv](2023/images.csv) table:
+Each image belongs to at least one of these categories as described in the [images.csv](images.csv) table:
 
 - Translucent
 - Animated
@@ -16,12 +16,13 @@ Each image belongs to at least one of these categories as described in the [imag
 - Medical
 - Gaming
 - Emoji
+- High-bit-depth (more than 8 bits per pixel per channel when uncompressed)
 
 ### Visualizer
 
-The images can be listed by category using the [grid viewer](https://google-research-datasets.github.io/web-images/2023/).
+The images can be listed by category using the [grid viewer](https://google-research-datasets.github.io/web-images/).
 
-## File integrity check
+## Preprocessing
 
 Medical imaging resources were converted to PNG using Python and the `nibabel` and `cv2` dependencies:
 
@@ -30,14 +31,22 @@ image = cv2.resize(nibabel.load().get_fdata()[shape0,shape1,shape2], (dimension0
 cv2.imwrite(png_path, image / (image.max() / 255))
 ```
 
-To obtain the same MD5 hashes as listed in the [images.csv](2023/images.csv) table, PNG metadata was stripped from the files using the following Python command:
+PNG metadata was stripped from the files using the following Python command:
 
 ```py
 cv2.imwrite(path, cv2.imread(path, cv2.IMREAD_UNCHANGED), [cv2.IMWRITE_PNG_COMPRESSION, 9])
 ```
 
+or `optipng` command line tool:
+
+```sh
+optipng -clobber -strip all
+```
+
 ## License
 
-Each image has its own license, copyright and credits as described in the [images.csv](2023/images.csv) table. See the [licenses](2023/licenses) folder.
+Each image has its own license, copyright and credits as described in the [images.csv](images.csv) table.
 
-The image list itself is licensed under the Creative Commons license [Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/). See the [LICENSE](LICENSE) file.
+The image list itself is licensed under the Creative Commons license [Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/).
+
+See the [LICENSE](LICENSE) file.
