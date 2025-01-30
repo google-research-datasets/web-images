@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.1
+
+- Apply optipng -strip all to all PNG files.
+- Remove scripts/strip_metadata.py.
+- Add scripts/list_md5.py.
+
 ## v0.2.0
 
 - Flatten the folder structure for easier future asset additions.
