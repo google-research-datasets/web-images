@@ -10,7 +10,7 @@ import os
 import sys
 
 
-image_categories = ['Translucent', 'Animated', 'Camera-captured', 'Scan', 'Synthetic', 'Up-to-128x128px', 'Screen-captured', 'Medical', 'Gaming', 'Emoji']
+image_categories = ['Translucent', 'Animated', 'Camera-captured', 'Scan', 'Synthetic', 'Up-to-128x128px', 'Screen-captured', 'Medical', 'Gaming', 'Emoji', 'High-bit-depth']
 
 if __name__ == '__main__':
   if len(sys.argv) != 4:
@@ -39,7 +39,9 @@ if __name__ == '__main__':
       img {
         max-width: 256px;
         max-height: 256px;
-        background-image: url(transparency_checkerboard.webp);
+        background-image: linear-gradient(45deg, #cacaca 25%, transparent 25%), linear-gradient(-45deg, #cacaca 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #cacaca 75%), linear-gradient(-45deg, transparent 75%, #cacaca 75%);
+        background-size: 16px 16px;
+        background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
       }
       img:hover {
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
