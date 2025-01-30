@@ -31,13 +31,7 @@ image = cv2.resize(nibabel.load().get_fdata()[shape0,shape1,shape2], (dimension0
 cv2.imwrite(png_path, image / (image.max() / 255))
 ```
 
-PNG metadata was stripped from the files using the following Python command:
-
-```py
-cv2.imwrite(path, cv2.imread(path, cv2.IMREAD_UNCHANGED), [cv2.IMWRITE_PNG_COMPRESSION, 9])
-```
-
-or `optipng` command line tool:
+All PNG files were stripped of any metadata using the `optipng` command line tool:
 
 ```sh
 optipng -clobber -strip all
